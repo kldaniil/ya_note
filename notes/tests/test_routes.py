@@ -42,6 +42,7 @@ class TestRoutes(TestCase):
         urls = (
             ('notes:add', None),
             ('notes:list', None),
+            ('notes:success', None),
         )
         self.client.force_login(self.user)
         for name, args in urls:
@@ -73,7 +74,7 @@ class TestRoutes(TestCase):
         # Сохраняем адрес страницы логина:
         login_url = reverse('users:login')
         # В цикле перебираем имена страниц, с которых ожидаем редирект:
-        for name in ('notes:edit', 'notes:delete', 'notes:list', 'notes:add'):
+        for name in ('notes:detail', 'notes:success', 'notes:edit', 'notes:delete', 'notes:list', 'notes:add'):
             with self.subTest(name=name):
                 # Получаем адрес страницы редактирования или удаления комментария:
                 url = reverse(name, args=(self.note.slug,))
