@@ -18,6 +18,7 @@ def test_pages_availability_for_anonymous_user(client, name):
     response = client.get(url)
     assert response.status_code == HTTPStatus.OK
 
+
 @pytest.mark.parametrize(
     'name',
     ('notes:list', 'notes:add', 'notes:success')
@@ -55,7 +56,7 @@ def test_pages_availability_for_different_users(
 
 
 @pytest.mark.parametrize(
-    # Вторым параметром передаём note_object, 
+    # Вторым параметром передаём note_object,
     # в котором будет либо фикстура с объектом заметки, либо None
     'name, args',
     (
